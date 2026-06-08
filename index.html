@@ -7,26 +7,21 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1520; color: #e0e6f0; min-height: 100vh; }
-
   .header { background: #16223b; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #d40075; flex-wrap: wrap; gap: 12px; }
   .header-left { display: flex; align-items: center; gap: 16px; }
   .logo { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
   .logo span { color: #d40075; }
   .badge { background: #d40075; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
   .header-right { font-size: 13px; color: #8899bb; }
-
   .stats-bar { background: #1e2d4a; padding: 16px 32px; display: flex; gap: 32px; flex-wrap: wrap; border-bottom: 1px solid #2a3d5c; align-items: center; }
   .stat { display: flex; flex-direction: column; gap: 2px; }
   .stat-value { font-size: 22px; font-weight: 700; color: #d40075; }
   .stat-label { font-size: 11px; color: #8899bb; text-transform: uppercase; letter-spacing: 0.5px; }
   .date-note { margin-left: auto; font-size: 12px; color: #8899bb; display: flex; align-items: center; padding: 8px 12px; background: #16223b; border-radius: 6px; border: 1px solid #2a3d5c; }
-
   .filters { padding: 20px 32px; display: flex; gap: 10px; flex-wrap: wrap; }
   .filter-btn { background: #1e2d4a; border: 1px solid #2a3d5c; color: #8899bb; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
   .filter-btn:hover, .filter-btn.active { background: #d40075; border-color: #d40075; color: #fff; }
-
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; padding: 0 32px 32px; }
-
   .card { background: #1e2d4a; border: 1px solid #2a3d5c; border-radius: 10px; padding: 22px; position: relative; transition: transform 0.2s, box-shadow 0.2s; display: block; }
   .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
   .card.european { border-left: 4px solid #0093d3; }
@@ -51,12 +46,9 @@
   .card-date { font-size: 12px; color: #8899bb; }
   .source-link { font-size: 12px; color: #0093d3; text-decoration: none; font-weight: 600; }
   .source-link:hover { color: #d40075; }
-
   .no-results { display: none; padding: 48px 32px; text-align: center; color: #556688; font-size: 14px; }
-
   .footer { background: #16223b; border-top: 1px solid #2a3d5c; padding: 20px 32px; text-align: center; font-size: 12px; color: #556688; margin-top: 8px; }
   .footer strong { color: #8899bb; }
-
   @media (max-width: 600px) {
     .header, .stats-bar, .filters, .grid { padding-left: 16px; padding-right: 16px; }
     .grid { grid-template-columns: 1fr; }
@@ -65,171 +57,76 @@
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-left">
     <div class="logo">Space<span>-</span>Comm</div>
     <div class="badge">Space-Comm Intel</div>
   </div>
-  <div class="header-right">Weekly Funding Briefing &nbsp;|&nbsp; 26 May - 1 June 2026</div>
+  <div class="header-right">Weekly Funding Briefing &nbsp;|&nbsp; 1 - 8 June 2026</div>
 </div>
-
 <div class="stats-bar">
-  <div class="stat">
-    <div class="stat-value" id="stat-deals">4</div>
-    <div class="stat-label">Deals Found</div>
-  </div>
-  <div class="stat">
-    <div class="stat-value" id="stat-eu">1</div>
-    <div class="stat-label">European</div>
-  </div>
-  <div class="stat">
-    <div class="stat-value" id="stat-def">2</div>
-    <div class="stat-label">Defence &amp; Dual-use</div>
-  </div>
-  <div class="stat">
-    <div class="stat-value" id="stat-total">~$480M+</div>
-    <div class="stat-label">Total Capital</div>
-  </div>
-  <div class="date-note">26 May - 1 June 2026 &nbsp;|&nbsp; 7-day window</div>
+  <div class="stat"><div class="stat-value">2</div><div class="stat-label">Deals Found</div></div>
+  <div class="stat"><div class="stat-value">0</div><div class="stat-label">European</div></div>
+  <div class="stat"><div class="stat-value">2</div><div class="stat-label">Defence &amp; Dual-use</div></div>
+  <div class="stat"><div class="stat-value">~$700M+</div><div class="stat-label">Total Capital</div></div>
+  <div class="date-note">1 - 8 June 2026 &nbsp;|&nbsp; 7-day window</div>
 </div>
-
 <div class="filters">
   <button class="filter-btn active" onclick="filterDeals('all', this)">All deals</button>
   <button class="filter-btn" onclick="filterDeals('european', this)">&#x1F1EA;&#x1F1FA; European only</button>
   <button class="filter-btn" onclick="filterDeals('defence', this)">&#x1F6E1; Defence &amp; Dual-use</button>
 </div>
-
 <div class="grid" id="dealGrid">
-
   <div class="card hot" data-european="0" data-defence="1">
     <div class="hot-badge">&#x1F525; Hot deal</div>
     <div class="card-top">
-      <div>
-        <div class="company-name">Observable Space &#x1F1FA;&#x1F1F8;</div>
-        <div class="company-meta">United States &nbsp;|&nbsp; Optical Intelligence &amp; Lasercom</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="amount">$90M</div>
-        <div class="round">Series A</div>
-      </div>
+      <div><div class="company-name">Impulse Space &#x1F1FA;&#x1F1F8;</div><div class="company-meta">United States &nbsp;|&nbsp; In-Space Mobility &amp; Orbital Transfer</div></div>
+      <div style="text-align:right;"><div class="amount">$500M</div><div class="round">Series D</div></div>
     </div>
     <div class="tags">
+      <span class="tag defence">In-Space Mobility</span>
       <span class="tag defence">Space Domain Awareness</span>
-      <span class="tag defence">Space Defence</span>
-      <span class="tag other">Orbital Compute</span>
-      <span class="tag other">Satellite</span>
-    </div>
-    <div class="summary">
-      Observable Space closed a $90M Series A led by Lux Capital on 28 May, simultaneously announcing a $94M sole-sourced U.S. Space Force IDIQ contract for expeditionary optical ground sensing stations. Formed from the merger of PlaneWave Instruments and OurSky, the company has a vertically integrated stack from ground hardware through laser comms to in-space payloads.
-    </div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">RTX Ventures is in the cap table and they have a live Space Force contract - Observable Space is already operating in exactly the defence and SDA space that defines Space-Comm's government buyer audience. Worth approaching now about the US Pavilion or a keynote slot.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">28 May 2026</div>
-      <a href="https://spacenews.com/observable-space-raises-90-million-and-wins-space-force-contract-for-optical-systems/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
-    </div>
-  </div>
-
-  <div class="card european hot" data-european="1" data-defence="1">
-    <div class="hot-badge">&#x1F525; Hot deal</div>
-    <div class="card-top">
-      <div>
-        <div class="company-name">ICEYE &#x1F1EB;&#x1F1EE;</div>
-        <div class="company-meta">Finland &nbsp;|&nbsp; SAR Satellite Intelligence</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="amount">&#x20AC;28.3M</div>
-        <div class="round">R&amp;D Grant</div>
-      </div>
-    </div>
-    <div class="tags">
-      <span class="tag defence">Space Defence</span>
-      <span class="tag defence">Space Domain Awareness</span>
-      <span class="tag other">Satellite</span>
-    </div>
-    <div class="summary">
-      Business Finland approved a 28.3M euro continuation grant for ICEYE's sovereign intelligence R&amp;D programme, backing next-generation SAR satellite development, AI-powered analytics, and defence monitoring capabilities. ICEYE has already delivered a MikroSAR system to the Polish Armed Forces in under 12 months.
-    </div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">ICEYE just proved it can deliver sovereign SAR capability direct to armed forces at speed - exactly the kind of company our 500+ defence buyers and 600+ government officials come to Space-Comm to meet. Strong candidate for a keynote or defence-track session at ExCeL Feb 2027.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">1 June 2026</div>
-      <a href="https://www.iceye.com/newsroom" target="_blank" class="source-link">ICEYE Newsroom &#x2197;</a>
-    </div>
-  </div>
-
-  <div class="card hot" data-european="0" data-defence="0">
-    <div class="hot-badge">&#x1F525; Hot deal</div>
-    <div class="card-top">
-      <div>
-        <div class="company-name">Unastella &#x1F1F0;&#x1F1F7;</div>
-        <div class="company-meta">South Korea &nbsp;|&nbsp; Small Launch Vehicle</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="amount">$24M</div>
-        <div class="round">Series B</div>
-      </div>
-    </div>
-    <div class="tags">
-      <span class="tag other">Small Launch</span>
-      <span class="tag other">In-Space Services</span>
-    </div>
-    <div class="summary">
-      South Korean rocket startup Unastella secured $24 million in Series B funding to advance development of its Una Express-II small launch vehicle. Unastella is part of a growing wave of Asia-Pacific launch startups challenging the dominance of established Western and Chinese players in the small satellite delivery market.
-    </div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Asia-Pacific launch is a fast-growing segment and Space-Comm 2027 brings 50 space nations to one room - Unastella would stand out as the only Korean launch exhibitor in London, in front of exactly the European and government launch buyers they need to build relationships with.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">1 June 2026</div>
-      <a href="https://techcrunch.com/category/space/" target="_blank" class="source-link">TechCrunch &#x2197;</a>
-    </div>
-  </div>
-
-  <div class="card european" data-european="1" data-defence="1">
-    <div class="card-top">
-      <div>
-        <div class="company-name">ICEYE &#x1F1EB;&#x1F1EE;</div>
-        <div class="company-meta">Finland &nbsp;|&nbsp; SAR Satellite Intelligence</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="amount">&#x20AC;300M</div>
-        <div class="round">Revolving Credit Facility</div>
-      </div>
-    </div>
-    <div class="tags">
-      <span class="tag defence">Space Defence</span>
-      <span class="tag other">Satellite</span>
+      <span class="tag other">Orbital Transfer Vehicle</span>
       <span class="tag dual-use">Dual-use</span>
     </div>
-    <div class="summary">
-      ICEYE originated a 300M euro 3-year committed revolving credit facility, giving the company substantial financial firepower to accelerate constellation expansion, R&amp;D, and commercial growth. The facility signals institutional lender confidence in ICEYE's revenue model and positions them to scale rapidly across defence, government, and insurance clients.
-    </div>
+    <div class="summary">Impulse Space - founded by SpaceX engine veteran Tom Mueller - closed a $500M Series D on 2 June, co-led by 137 Ventures and Banner VC, valuing the company at $4.26 billion. The company builds highly maneuverable orbital transfer vehicles that ferry satellites and payloads to precise orbits after launch. With Falcon 9 rideshare launches secured and contracts across commercial and government customers, Impulse is building the logistics backbone of the orbital economy at a moment when defence agencies are prioritising responsive space access above all else.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A 300M euro credit facility means ICEYE is in serious growth mode - worth a call now about flagship sponsorship or a defence stage partnership for Space-Comm 2027 before their events budget is locked.</div>
+      <div class="outreach-text">Impulse's OTV capability is exactly what Space Force, MoD, and allied defence agencies are asking about at Space-Comm. At $4.26B they are credible enough to anchor a keynote or defence stage session. Strong candidate for the US Pavilion - worth approaching now before their 2027 events calendar closes.</div>
     </div>
     <div class="card-footer">
-      <div class="card-date">21 May 2026</div>
-      <a href="https://www.iceye.com/newsroom" target="_blank" class="source-link">ICEYE Newsroom &#x2197;</a>
+      <div class="card-date">2 June 2026</div>
+      <a href="https://www.impulsespace.com/updates" target="_blank" class="source-link">Impulse Space &#x2197;</a>
     </div>
   </div>
-
+  <div class="card hot" data-european="0" data-defence="1">
+    <div class="hot-badge">&#x1F525; Hot deal</div>
+    <div class="card-top">
+      <div><div class="company-name">Apex Space &#x1F1FA;&#x1F1F8;</div><div class="company-meta">United States &nbsp;|&nbsp; Satellite Bus Platforms</div></div>
+      <div style="text-align:right;"><div class="amount">$200M+</div><div class="round">Growth Round</div></div>
+    </div>
+    <div class="tags">
+      <span class="tag defence">National Security</span>
+      <span class="tag other">Satellite Manufacturing</span>
+      <span class="tag other">Satellite Bus</span>
+      <span class="tag dual-use">Dual-use</span>
+    </div>
+    <div class="summary">Apex announced a $200M+ growth round on 5 June, led by Glade Brook Capital Partners and Washington Harbour Partners, more than doubling its valuation to $2.3 billion in under a year. The four-year-old LA company builds productised, configurable satellite bus platforms for commercial constellations and critical US government missions including missile defence. Its manufacturing-first model wins large contracts by delivering at speed and scale where traditional primes cannot - and the new capital goes straight into expanding production capacity.</div>
+    <div class="outreach">
+      <div class="outreach-label">Space-Comm Outreach Angle</div>
+      <div class="outreach-text">Apex is the go-to satellite platform for USG national security missions and just doubled their valuation - they are in serious growth mode building new supply chain partnerships. Strong fit for an exhibitor stand or manufacturing panel at Space-Comm 2027, and a natural pairing with Impulse Space in the US Pavilion.</div>
+    </div>
+    <div class="card-footer">
+      <div class="card-date">5 June 2026</div>
+      <a href="https://www.apexspace.com/blog" target="_blank" class="source-link">Apex Space &#x2197;</a>
+    </div>
+  </div>
 </div>
-
 <div class="no-results" id="noResults">No deals match this filter this week.</div>
-
 <div class="footer">
-  <strong>Space-Comm Intel</strong> &nbsp;|&nbsp; 7-day window: 26 May - 1 June 2026 &nbsp;|&nbsp; Verified sources only<br>
+  <strong>Space-Comm Intel</strong> &nbsp;|&nbsp; 7-day window: 1 - 8 June 2026 &nbsp;|&nbsp; Verified sources only &nbsp;|&nbsp; Auto-refreshes every Monday 08:00<br>
   <span style="margin-top:6px;display:block;">Space-Comm Expo Europe 2027 &nbsp;&middot;&nbsp; <strong>24-25 February 2027</strong> &nbsp;&middot;&nbsp; ExCeL London</span>
 </div>
-
 <script>
 function filterDeals(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -247,4 +144,4 @@ function filterDeals(type, btn) {
 }
 </script>
 </body>
-</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </html>
