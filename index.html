@@ -18,6 +18,8 @@
   .stat-value { font-size: 22px; font-weight: 700; color: #d40075; }
   .stat-label { font-size: 11px; color: #8899bb; text-transform: uppercase; letter-spacing: 0.5px; }
   .date-note { margin-left: auto; font-size: 12px; color: #8899bb; display: flex; align-items: center; padding: 8px 12px; background: #16223b; border-radius: 6px; border: 1px solid #2a3d5c; }
+  .context-bar { background: rgba(212,0,117,0.06); border-bottom: 1px solid rgba(212,0,117,0.2); padding: 12px 32px; font-size: 13px; color: #d4a0bc; line-height: 1.5; }
+  .context-bar strong { color: #d40075; }
   .filters { padding: 20px 32px; display: flex; gap: 10px; flex-wrap: wrap; }
   .filter-btn { background: #1e2d4a; border: 1px solid #2a3d5c; color: #8899bb; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
   .filter-btn:hover, .filter-btn.active { background: #d40075; border-color: #d40075; color: #fff; }
@@ -33,6 +35,7 @@
   .amount { font-size: 22px; font-weight: 800; color: #d40075; white-space: nowrap; }
   .round { font-size: 12px; color: #8899bb; text-align: right; margin-top: 2px; }
   .hot-badge { display: inline-block; background: rgba(212,0,117,0.15); border: 1px solid #d40075; color: #d40075; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
+  .gap-badge { display: inline-block; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.5); color: #f59e0b; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
   .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
   .tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 12px; }
   .tag.defence { background: rgba(220,50,50,0.15); color: #f07070; border: 1px solid rgba(220,50,50,0.3); }
@@ -62,14 +65,17 @@
     <div class="logo">Space<span>-</span>Comm</div>
     <div class="badge">Space-Comm Intel</div>
   </div>
-  <div class="header-right">Weekly Funding Briefing &nbsp;|&nbsp; 16 Jun - 22 Jun 2026</div>
+  <div class="header-right">Weekly Funding Briefing &nbsp;|&nbsp; 26 Jun - 3 Jul 2026</div>
 </div>
 <div class="stats-bar">
-  <div class="stat"><div class="stat-value">4</div><div class="stat-label">Deals Found</div></div>
-  <div class="stat"><div class="stat-value">0</div><div class="stat-label">European</div></div>
-  <div class="stat"><div class="stat-value">3</div><div class="stat-label">Defence &amp; Dual-use</div></div>
-  <div class="stat"><div class="stat-value">$697M</div><div class="stat-label">Total Capital</div></div>
-  <div class="date-note">16 Jun - 22 Jun 2026 &nbsp;|&nbsp; 7-day window</div>
+  <div class="stat"><div class="stat-value">2</div><div class="stat-label">Deals Found</div></div>
+  <div class="stat"><div class="stat-value">1</div><div class="stat-label">European</div></div>
+  <div class="stat"><div class="stat-value">1</div><div class="stat-label">Defence &amp; Dual-use</div></div>
+  <div class="stat"><div class="stat-value">$202M</div><div class="stat-label">Total Capital</div></div>
+  <div class="date-note">26 Jun - 3 Jul 2026 &nbsp;|&nbsp; 8-day window</div>
+</div>
+<div class="context-bar">
+  <strong>Quiet week after a record H1.</strong> June 26 - July 3 was deliberately light on new VC announcements - not unusual after a period in which over <strong>$6.6B</strong> was invested in space in H1 2026 alone (Payload Pro). The biggest deals of the half - iSpace $729M, True Anomaly $650M, ICEYE $520M, Impulse Space $500M - all landed before this window. Two verified deals this week, both worth your attention.
 </div>
 <div class="filters">
   <button class="filter-btn active" onclick="filterDeals('all', this)">All deals</button>
@@ -78,96 +84,61 @@
 </div>
 <div class="grid" id="dealGrid">
 
-  <!-- MDA Space / Blue Canyon Technologies -->
-  <div class="card hot" data-european="0" data-defence="1">
-    <div class="hot-badge">&#x1F525; Hot deal</div>
-    <div class="card-top">
-      <div><div class="company-name">MDA Space / Blue Canyon Tech &#x1F1E8;&#x1F1E6;&#x1F1FA;&#x1F1F8;</div><div class="company-meta">Canada / USA &nbsp;|&nbsp; Defence Smallsat Manufacturing</div></div>
-      <div style="text-align:right;"><div class="amount">$620M</div><div class="round">Acquisition</div></div>
-    </div>
-    <div class="tags"><span class="tag defence">Defence</span><span class="tag dual-use">Dual-use</span><span class="tag other">Smallsat Manufacturing</span></div>
-    <div class="summary">Canada's MDA Space signed a definitive agreement on June 19 to acquire Blue Canyon Technologies (BCT) from RTX's Raytheon unit for $620 million cash - the largest strategic transaction in the smallsat sector this week. BCT has launched over 90 spacecraft with 3,500+ components on orbit, giving MDA an immediate US defense foothold it couldn't build organically. The deal adds an estimated $3.5B to MDA's pipeline. Subject to regulatory approval, expected to close by end of 2026.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Post-acquisition MDA/BCT will be consolidating European supply chain and defence partnerships. Space-Comm Expo Europe 2027 at ExCeL London is where European smallsat primes, system integrators, and UK/EU defence procurement meet. A stand positions the new combined entity front and centre for European programme leads at exactly the moment they need visibility.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">19 June 2026</div>
-      <a href="https://spacenews.com/mda-space-to-buy-blue-canyon-technologies-to-gain-foothold-in-u-s-market/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
-    </div>
-  </div>
-
-  <!-- ElevationSpace -->
+  <!-- Hongqing Technology -->
   <div class="card hot" data-european="0" data-defence="0">
-    <div class="hot-badge">&#x1F525; Hot deal</div>
+    <div class="hot-badge">&#x1F525; Biggest deal this week</div>
     <div class="card-top">
-      <div><div class="company-name">ElevationSpace &#x1F1EF;&#x1F1F5;</div><div class="company-meta">Japan &nbsp;|&nbsp; In-Orbit Manufacturing &amp; Re-entry</div></div>
-      <div style="text-align:right;"><div class="amount">$40M</div><div class="round">Series B</div></div>
+      <div><div class="company-name">Hongqing Technology &#x1F1E8;&#x1F1F3;</div><div class="company-meta">China &nbsp;|&nbsp; LEO Satellite Manufacturing</div></div>
+      <div style="text-align:right;"><div class="amount">$191M</div><div class="round">Growth Round</div></div>
     </div>
-    <div class="tags"><span class="tag other">In-Orbit Manufacturing</span><span class="tag other">Re-entry Recovery</span><span class="tag other">ISS Successor</span></div>
-    <div class="summary">Japanese startup ElevationSpace secured $40 million in Series B funding on June 19, bringing total raised to $63.5 million. Investors include SPARX Asset Management, Beyond Next Ventures, NTT DOCOMO Ventures, Toyoda Gosei, and Dai Nippon Printing. The company develops the ELS-R platform - small uncrewed satellites that manufacture high-quality materials (including semiconductors) in microgravity and return them to Earth. Cheaper and more frequent than the ISS, ElevationSpace is positioning as the commercial successor for in-space manufacturing as the ISS approaches end-of-life.</div>
+    <div class="tags"><span class="tag other">LEO Constellation</span><span class="tag other">Satellite Manufacturing</span><span class="tag other">Mega-constellation</span></div>
+    <div class="summary">Hongqing Technology - the satellite manufacturing arm of Chinese launch company Landspace - raised more than 1.3 billion yuan ($191M) on July 2, bringing total financing to over $368M. The round was led by the investment arms of China Construction Bank and ICBC alongside Jinpu Capital, with all five Chinese state banks participating. Hongqing filed the Honghu-3 constellation with the ITU in May 2024 - 10,000 satellites across 160 orbital planes - making it China's third 10,000+ satellite megaconstellation alongside the national Guowang and Shanghai-backed Qianfan programs. This is one of the largest single raises by a Chinese commercial satellite manufacturer on record.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">This Series B signals global expansion - they need European pharma, materials, and semiconductor partners seeking microgravity manufacturing access. Space-Comm 2027 connects them with ESA research groups, UK and EU in-space economy programmes, and commercial space station operators. Strong candidate for a speaking slot on in-orbit manufacturing as the ISS transitions.</div>
+      <div class="outreach-text">China's commercial space sector is maturing fast and actively seeking European credibility. Landspace already operates the Zhuque-2 rocket and Hongqing is building constellation-scale manufacturing capacity. As Chinese companies target European spectrum filings, supply chain partnerships, and commercial customers, Space-Comm Expo Europe 2027 at ExCeL London is the signal event that puts them in the room with ESA, European operators, and defence procurement. Worth watching as a future international exhibitor or delegation presence.</div>
     </div>
     <div class="card-footer">
-      <div class="card-date">19 June 2026</div>
-      <a href="https://spacenews.com/elevationspace-secures-us-40-million-in-series-b-funding-bringing-total-raised-to-us-63-5-million/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+      <div class="card-date">2 July 2026</div>
+      <a href="https://spacenews.com/chinese-satellite-manufacturer-hongqing-raises-191-million/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
     </div>
   </div>
 
-  <!-- Dawn Aerospace -->
-  <div class="card" data-european="0" data-defence="1">
+  <!-- Ubotica Technologies -->
+  <div class="card european" data-european="1" data-defence="1">
+    <div class="gap-badge">&#x26A0; Gap deal - missed by previous run</div>
     <div class="card-top">
-      <div><div class="company-name">Dawn Aerospace &#x1F1F3;&#x1F1FF;</div><div class="company-meta">New Zealand / International &nbsp;|&nbsp; Reusable Space Transportation</div></div>
-      <div style="text-align:right;"><div class="amount">$25M</div><div class="round">Series B</div></div>
+      <div><div class="company-name">Ubotica Technologies &#x1F1EE;&#x1F1EA;</div><div class="company-meta">Ireland (Dublin) &nbsp;|&nbsp; Satellite AI / Maritime Intelligence</div></div>
+      <div style="text-align:right;"><div class="amount">$11M</div><div class="round">Series A</div></div>
     </div>
-    <div class="tags"><span class="tag dual-use">Dual-use</span><span class="tag other">Spaceplane</span><span class="tag other">Orbital Refueling</span></div>
-    <div class="summary">Dawn Aerospace closed a $25 million Series B on June 16, led by Balerion Space Ventures with participation from ANA Future Frontier Fund, Mana Ventures, and Green Eight Capital. Already the leading provider of non-toxic chemical propulsion with 200 thrusters on 50+ satellites, this round funds two milestones: the Aurora spaceplane (Mach 3.7, designed to cross the Karman line twice in one day) and a live in-orbit demonstration of their Loop satellite refueling technology in 2028. Commercial revenues have scaled from under $3M in FY22 to over $15M, 90%+ year-on-year growth.</div>
+    <div class="tags"><span class="tag dual-use">Dual-use</span><span class="tag defence">Maritime Security</span><span class="tag other">Orbital AI</span><span class="tag other">Earth Observation</span></div>
+    <div class="summary">Dublin-based Ubotica Technologies raised $11M on June 23, co-led by Ireland's Act Venture Capital and Finland's Greencode Ventures, with participation from Atlantic Bridge. The company has deployed its orbital AI on over 10 missions across 8 years of development. Now pivoting to commercial scale, its Live Maritime Intelligence platform uses hardware-agnostic edge AI to dynamically task satellites across optical, SAR, and RF modalities - delivering real-time maritime domain awareness. The raise comes as European governments scramble for better intelligence on undersea cable threats and offshore energy assets. CEO Fintan Buckley says the platform can be integrated on any satellite with edge-processing capability, making it a powerful layer across existing and future constellations.</div>
     <div class="outreach">
       <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">Dawn is actively expanding into the US and Europe with this raise - their propulsion tech is already on European satellites and their refueling roadmap is directly relevant to European operators extending asset life. Space-Comm puts them in front of satellite prime contractors, ESA supply chain, and UK defence customers at exactly the right growth stage.</div>
+      <div class="outreach-text">Fresh funding, proven orbital AI technology, and a direct maritime security use case puts Ubotica on exactly the right growth trajectory for Space-Comm Expo Europe 2027. Their customer base - European and NATO governments, maritime operators, and coastal defence agencies - is the Space-Comm audience. A stand puts them in front of UK MOD, ESA contractors, and European satellite operators who are actively looking for AI-driven intelligence layers. Strong conference speaker candidate on dual-use EO and the future of maritime surveillance from orbit.</div>
     </div>
     <div class="card-footer">
-      <div class="card-date">16 June 2026</div>
-      <a href="https://spacenews.com/dawn-aerospace-raises-25-million/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
-    </div>
-  </div>
-
-  <!-- Katalyst Space -->
-  <div class="card" data-european="0" data-defence="1">
-    <div class="card-top">
-      <div><div class="company-name">Katalyst Space &#x1F1FA;&#x1F1F8;</div><div class="company-meta">USA &nbsp;|&nbsp; Satellite Servicing</div></div>
-      <div style="text-align:right;"><div class="amount">$12M</div><div class="round">Series A</div></div>
-    </div>
-    <div class="tags"><span class="tag dual-use">Dual-use</span><span class="tag other">Satellite Servicing</span><span class="tag other">GEO / LEO Robotics</span></div>
-    <div class="summary">Katalyst Space raised $12 million in a Series A announced June 16, led by Geodesic Capital with Fortitude Ventures. The funding supports NEXUS - their robotic spacecraft for GEO satellite servicing - with a first mission scheduled to launch in 2027 on Ariane 6. The raise follows Katalyst's first-of-a-kind mission to boost NASA's Neil Gehrels Swift Observatory: their LINK robotic spacecraft launches June 27. The company is extending satellite servicing from LEO across multiple orbits, with both government and commercial customers.</div>
-    <div class="outreach">
-      <div class="outreach-label">Space-Comm Outreach Angle</div>
-      <div class="outreach-text">A mission launching on Ariane 6 and GEO servicing ambitions make Katalyst naturally aligned with European satellite infrastructure. Their customers - GEO operators extending asset life - are exactly the Space-Comm audience. A stand or speaking slot on on-orbit servicing positions them in front of European telecom and defence satellite operators who are their core target market.</div>
-    </div>
-    <div class="card-footer">
-      <div class="card-date">16 June 2026</div>
-      <a href="https://spacenews.com/katalyst-space-raises-12-million-for-geo-servicing-demo-mission/" target="_blank" class="source-link">SpaceNews &#x2197;</a>
+      <div class="card-date">23 June 2026</div>
+      <a href="https://payloadspace.com/ubotica-raises-11m-for-satellite-based-ai-tech/" target="_blank" class="source-link">Payload Space &#x2197;</a>
     </div>
   </div>
 
 </div>
 <div class="no-results" id="noResults">No deals match this filter this week.</div>
 <div class="footer">
-  <strong>Space-Comm Intel</strong> &nbsp;|&nbsp; 7-day window: 16 Jun - 22 Jun 2026 &nbsp;|&nbsp; Verified sources only &nbsp;|&nbsp; Auto-refreshes every Monday 08:00<br>
-  <span style="margin-top:6px;display:block;">Space-Comm Expo Europe 2027 &nbsp;&middot;&nbsp; <strong>24-25 February 2027</strong> &nbsp;&middot;&nbsp; ExCeL London</span>
+  <strong>Space-Comm Intel</strong> &nbsp;|&nbsp; Window: 26 Jun - 3 Jul 2026 (inc. gap from 23 Jun) &nbsp;|&nbsp; Verified sources only &nbsp;|&nbsp; Auto-refreshes every Monday 08:00<br>
+  Deals verified against SpaceNews, Payload Space, Bloomberg, TechCrunch &nbsp;|&nbsp; Min. threshold: $10M &nbsp;|&nbsp; <a href="https://space-comm.com" style="color:#0093d3;text-decoration:none;">space-comm.com</a>
 </div>
 <script>
 function filterDeals(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('#dealGrid .card');
   let visible = 0;
   cards.forEach(card => {
-    let show = true;
-    if (type === 'european') show = card.dataset.european === '1';
-    if (type === 'defence') show = card.dataset.defence === '1';
+    let show = false;
+    if (type === 'all') show = true;
+    else if (type === 'european') show = card.dataset.european === '1';
+    else if (type === 'defence') show = card.dataset.defence === '1';
     card.classList.toggle('hidden', !show);
     if (show) visible++;
   });
